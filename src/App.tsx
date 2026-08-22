@@ -1,9 +1,10 @@
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Projects } from "@/components/sections/Projects";
+import { AISystems } from "@/components/sections/AISystems";
 import { Experience } from "@/components/sections/Experience";
-import { Skills } from "@/components/sections/Skills";
+import { Labs } from "@/components/sections/Labs";
+import { Writing } from "@/components/sections/Writing";
+import { Technology } from "@/components/sections/Technology";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 import { SectionRail } from "@/components/sections/SectionRail";
@@ -15,10 +16,11 @@ export default function App() {
       <SectionRail />
       <main>
         <Hero />
-        <About />
-        <Projects />
+        <AISystems />
         <Experience />
-        <Skills />
+        <Labs />
+        <Writing />
+        <Technology />
         <Contact />
       </main>
       <Footer />

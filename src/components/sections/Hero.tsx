@@ -113,57 +113,64 @@ export function Hero() {
             }
             className="relative mx-auto max-w-[1120px]"
           >
-          <motion.div
-            initial={false}
-            animate={reduceMotion ? undefined : { opacity: [0.92, 1], y: [10, 0], scale: [0.99, 1] }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="relative text-center"
-          >
-            <BlurText
-              text="MOHAN"
-              delay={82}
-              reduceMotion={Boolean(reduceMotion)}
-              className="font-display text-[clamp(3.3rem,17vw,13.75rem)] font-black uppercase leading-[0.76] tracking-normal text-[#d7ff00] drop-shadow-[0_0_30px_rgba(215,255,0,0.12)]"
-            />
+            <motion.div
+              initial={false}
+              animate={reduceMotion ? undefined : { opacity: [0.92, 1], y: [10, 0], scale: [0.99, 1] }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="relative text-center"
+            >
+              <BlurText
+                text={hero.headline.line1}
+                delay={82}
+                reduceMotion={Boolean(reduceMotion)}
+                className="font-display text-[clamp(3.3rem,17vw,13.75rem)] font-black uppercase leading-[0.76] tracking-normal text-[#d7ff00] drop-shadow-[0_0_34px_rgba(215,255,0,0.18)]"
+              />
 
-            <div className="absolute left-1/2 top-1/2 z-10 h-[118px] w-[72px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full bg-zinc-950 shadow-2xl ring-1 ring-black/50 transition-transform duration-300 hover:scale-105 sm:h-[150px] sm:w-[90px] md:h-[186px] md:w-[112px] lg:h-[216px] lg:w-[130px]">
-              <motion.div
-                initial={false}
-                animate={reduceMotion ? undefined : { opacity: [0.9, 1], scale: [0.94, 1], y: [8, 0] }}
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.26 }}
-                className="h-full w-full"
-              >
-                <img
-                  src="/pic.jpg"
-                  alt={hero.name}
-                  className="h-full w-full origin-top scale-[2.25] object-cover object-[58%_16%]"
-                />
-              </motion.div>
-            </div>
-          </motion.div>
+              <div className="absolute left-1/2 top-1/2 z-10 h-[118px] w-[72px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full bg-zinc-950 shadow-2xl ring-1 ring-black/50 transition-transform duration-300 hover:scale-105 sm:h-[150px] sm:w-[90px] md:h-[186px] md:w-[112px] lg:h-[216px] lg:w-[130px]">
+                <motion.div
+                  initial={false}
+                  animate={reduceMotion ? undefined : { opacity: [0.9, 1], scale: [0.94, 1], y: [8, -4, 0] }}
+                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.26 }}
+                  className="h-full w-full"
+                >
+                  <img
+                    src="/pic.jpg"
+                    alt={hero.name}
+                    className="h-full w-full origin-top scale-[2.25] object-cover object-[58%_16%]"
+                  />
+                </motion.div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
 
-        <div className="absolute bottom-20 left-1/2 w-full -translate-x-1/2 px-6 text-center md:bottom-24 lg:bottom-32">
+        <div className="absolute bottom-16 left-1/2 w-full -translate-x-1/2 px-6 text-center md:bottom-20 lg:bottom-24">
           <motion.div
             initial={false}
             animate={reduceMotion ? undefined : { opacity: [0.82, 1], y: [10, 0] }}
             transition={{ duration: 0.55, ease: "easeOut", delay: 0.45 }}
+            className="mx-auto max-w-3xl"
           >
+            <p className="mb-3 font-display text-lg font-semibold text-white sm:text-xl md:text-2xl">
+              {hero.positioning}
+            </p>
             <BlurText
-              text="Building production-grade agentic AI systems."
+              text={hero.tagline}
               by="words"
-              delay={140}
+              delay={40}
               reduceMotion={Boolean(reduceMotion)}
               className="justify-center font-caption text-[15px] leading-relaxed text-neutral-500 transition-colors hover:text-white sm:text-lg md:text-xl"
             />
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#d7ff00]/80 sm:text-sm">
+              {hero.proof}
+            </p>
           </motion.div>
         </div>
 
         <a
-          href="#about"
-          aria-label="Scroll to about section"
-          className="absolute bottom-7 left-1/2 -translate-x-1/2 text-neutral-500 transition-colors hover:text-white md:bottom-10"
+          href="#systems"
+          aria-label="Scroll to selected AI systems"
+          className="absolute bottom-5 left-1/2 -translate-x-1/2 text-neutral-500 transition-colors hover:text-white md:bottom-7"
         >
           <motion.span
             initial={false}

@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "./Section";
-import { experience } from "@/content/portfolio";
-import { timelineReveal } from "@/lib/motion";
+import { experience, impactStats } from "@/content/portfolio";
+import { cardReveal, timelineReveal } from "@/lib/motion";
 
 function CompanyLogo({ src, alt }: { src?: string; alt: string }) {
   const [failed, setFailed] = useState(false);
@@ -33,6 +33,21 @@ export function Experience() {
       title="5+ years building enterprise AI"
       description="From legacy modernisation at Capgemini to ML risk analytics at Traxidy and multi-agent SDLC automation at Altimetrik — a continuous push from research into production."
     >
+      <div className="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {impactStats.map((stat) => (
+          <motion.div
+            key={stat.label}
+            variants={cardReveal}
+            className="rounded-2xl border border-lime-200/15 bg-lime-200/[0.035] p-5"
+          >
+            <p className="font-display text-3xl font-bold text-lime-200">
+              {stat.value}
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+          </motion.div>
+        ))}
+      </div>
+
       <ol className="relative space-y-8 border-l border-white/10 pl-6 md:pl-10">
         {experience.map((role) => (
           <motion.li

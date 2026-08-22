@@ -10,26 +10,34 @@ import {
   Github,
   Globe,
   GraduationCap,
+  FileSearch,
+  Layers3,
+  Network,
+  PenTool,
+  ShieldCheck,
+  Workflow,
   Award,
   type LucideIcon,
 } from "lucide-react";
 
 export type SectionId =
   | "home"
-  | "about"
-  | "projects"
+  | "systems"
   | "experience"
-  | "skills"
+  | "labs"
+  | "writing"
+  | "technology"
   | "contact";
 
 export type NavItem = { id: SectionId; label: string };
 
 export const navItems: NavItem[] = [
   { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "projects", label: "Projects" },
+  { id: "systems", label: "AI Systems" },
   { id: "experience", label: "Experience" },
-  { id: "skills", label: "Skills" },
+  { id: "labs", label: "Labs" },
+  { id: "writing", label: "Writing" },
+  { id: "technology", label: "Technology" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -40,12 +48,14 @@ export const hero = {
   location: "Boston, MA",
   company: "Altimetrik",
   availability: "Available for opportunities",
+  positioning: "AI Engineer — Agentic Systems & Enterprise AI",
+  proof: "5+ yrs Engineering · 300+ Engineers Trained · 10+ AI Systems",
   headline: {
-    line1: "Building Production-Grade",
-    line2: "Agentic AI Systems",
+    line1: "MOHAN",
+    line2: "AI Engineer — Agentic Systems & Enterprise AI",
   },
   tagline:
-    "GenAI Engineer specialising in multi-agent systems, RAG pipelines, and production-grade LLM architectures. I design and deliver enterprise AI that operates at scale across the full SDLC lifecycle — with humans always in control.",
+    "I build production AI systems that connect agents, enterprise data and software-development workflows.",
   badges: ["Northeastern MS · GPA 3.8", "Multi-Agent · RAG · MCP", "Boston, MA"],
   expertise: [
     "Agentic AI",
@@ -68,6 +78,75 @@ export const hero = {
   ],
 };
 
+export const impactStats = [
+  { value: "300+", label: "Engineers trained" },
+  { value: "5", label: "Systems connected via MCP" },
+  { value: "40%", label: "Decision accuracy lift" },
+  { value: "25+", label: "Enterprise apps delivered" },
+];
+
+export type AISystem = {
+  title: string;
+  subtitle: string;
+  problem: string;
+  approach: string;
+  stack: string[];
+  impact: string;
+  lessons: string;
+  architecture: string[];
+  icon: LucideIcon;
+  featured?: boolean;
+};
+
+export const aiSystems: AISystem[] = [
+  {
+    title: "Labyrinth",
+    subtitle: "Agentic Software Engineering",
+    problem:
+      "Enterprise delivery teams lose time translating requests across Slack, Jira, code, tests, reviews, and deployment handoffs.",
+    approach:
+      "Built a human-controlled agentic workflow that turns engineering tickets into reviewed implementation plans, code changes, validation runs, and GitHub-ready output.",
+    stack: ["OpenAI Codex", "MCP", "Slack", "Jira", "GitHub", "Snowflake", "Databricks"],
+    impact:
+      "Connected the ticket-to-PR loop across five enterprise systems while keeping approvals explicit at every critical decision point.",
+    lessons:
+      "Agentic SDLC systems work best when autonomy is bounded by clean context, observable checkpoints, and reviewer control.",
+    architecture: ["Slack", "Jira", "Codex", "Eval", "GitHub"],
+    icon: Workflow,
+    featured: true,
+  },
+  {
+    title: "Autonomous SDLC",
+    subtitle: "Requirement-to-Deployment Agents",
+    problem:
+      "Requirements, SQL validation, test generation, and deployment checks were fragmented across manual engineering steps.",
+    approach:
+      "Designed staged agents for requirement analysis, SQL generation, test-case creation, validation, and deployment with approval gates between stages.",
+    stack: ["LangChain", "OpenAI", "Claude", "MCP", "GitHub Actions", "SQL"],
+    impact:
+      "Created a reusable deployment framework for production-ready code generation and validation across enterprise workflows.",
+    lessons:
+      "Reliability comes from stage boundaries, testable intermediate artifacts, and clear rollback paths, not one giant autonomous prompt.",
+    architecture: ["Requirements", "Agents", "Tests", "Review", "Deploy"],
+    icon: Network,
+  },
+  {
+    title: "Enterprise RAG",
+    subtitle: "Versioned Knowledge Retrieval",
+    problem:
+      "Internal answers were scattered across Confluence, Jira, schemas, and changing business documentation.",
+    approach:
+      "Architected version-controlled RAG pipelines with custom connectors, automatic re-indexing, semantic retrieval, and governance-friendly source grounding.",
+    stack: ["RAG", "Vector DBs", "Confluence", "Jira", "OpenAI", "Databricks"],
+    impact:
+      "Improved knowledge freshness and retrieval quality for enterprise AI assistants working over operational data.",
+    lessons:
+      "RAG quality depends as much on ingestion contracts, naming drift, and refresh strategy as it does on embedding choice.",
+    architecture: ["Sources", "Ingest", "Index", "Retrieve", "Answer"],
+    icon: FileSearch,
+  },
+];
+
 export type ExperienceRole = {
   title: string;
   company: string;
@@ -87,10 +166,10 @@ export const experience: ExperienceRole[] = [
     logo: "/altimetrik.png",
     tags: ["GenAI", "Agentic", "MCP"],
     bullets: [
-      "Leading an end-to-end AI enablement program training 300+ engineers — covering GenAI fundamentals, advanced RAG, multi-agent systems, SDLC integration, evaluation frameworks, and observability.",
-      "Delivering enterprise Copilot L&D programs on prompt engineering, multi-agent usage, custom MCP server development, and governance — rolling out across multiple business units.",
-      "Built Labyrinth, an AI-powered engineering workflow that automates the full ticket-to-PR cycle across Slack, Jira, GitHub, Snowflake, and Databricks via OpenAI Codex.",
-      "Developed Codex (autonomous code deployment & testing) and an enterprise-scale Copilot Training platform from scratch — both now in active production use.",
+      "Trained 300+ engineers on GenAI fundamentals, advanced RAG, multi-agent systems, SDLC integration, evaluation, and observability.",
+      "Built Labyrinth, an agentic engineering workflow connecting Slack, Jira, GitHub, Snowflake, and Databricks through OpenAI Codex and MCP.",
+      "Delivered enterprise Copilot programs covering prompt engineering, custom MCP servers, governance, and human approval patterns.",
+      "Developed autonomous deployment, testing, and Copilot training systems now used in production workflows.",
     ],
   },
   {
@@ -101,11 +180,10 @@ export const experience: ExperienceRole[] = [
     logo: "/altimetrik.png",
     tags: ["RAG", "MCP", "LangChain"],
     bullets: [
-      "Developed a multi-agent data pipeline using LangChain, OpenAI, Claude, and open-source models on cloud architectures — designed for portability and enterprise scale.",
-      "Implemented a full SDLC deployment framework: agents autonomously analyse requirements, generate and validate SQL, auto-generate test cases, and deploy production-ready code to GitHub via MCP.",
-      "Built a human-in-the-loop approval framework across each SDLC stage, giving enterprise reviewers structured control to approve, reject, or redirect agent actions.",
-      "Architected version-controlled RAG pipelines and vector databases with automatic re-indexing triggered by schema, naming, or knowledge changes.",
-      "Redesigned custom Confluence and Jira connectors for automated, real-time knowledge extraction across enterprise wikis.",
+      "Developed portable multi-agent data pipelines using LangChain, OpenAI, Claude, and open-source models on cloud architectures.",
+      "Implemented an SDLC framework where agents analyze requirements, generate SQL, create tests, and deploy code to GitHub through MCP.",
+      "Built approval gates so enterprise reviewers can approve, reject, or redirect agent actions at each SDLC stage.",
+      "Architected version-controlled RAG pipelines with automatic re-indexing for schema, naming, and knowledge changes.",
     ],
   },
   {
@@ -116,8 +194,8 @@ export const experience: ExperienceRole[] = [
     logo: "/vester.png",
     tags: ["LLM", "Research", "Multi-Agent"],
     bullets: [
-      "Engineered an LLM-based multi-agent orchestration platform integrating PubMed and Wiley APIs — delivering curated, metadata-rich literature summaries that accelerated researchers' literature review.",
-      "Built AI pipelines for industrial sensor data from pharmaceutical liquid processing systems, automating control decisions and capturing key operational metrics in real time.",
+      "Engineered an LLM multi-agent research platform integrating PubMed and Wiley APIs for metadata-rich literature summaries.",
+      "Built AI pipelines for pharmaceutical sensor data, automating control decisions and real-time operational metrics.",
     ],
   },
   {
@@ -128,9 +206,9 @@ export const experience: ExperienceRole[] = [
     logo: "/traxidy.png",
     tags: ["ML", "Analytics", "Flask"],
     bullets: [
-      "Built a predictive analytics dashboard for project risk assessment using ML, improving decision-making accuracy by 40% over traditional methods.",
-      "Implemented a three-tier risk score classification system (Low / Medium / High) that became the standard risk management interface for project stakeholders.",
-      "Developed a Flask-based chatbot for querying live project details, risks, and mitigation strategies — reducing time spent on manual status reporting.",
+      "Built an ML risk dashboard that improved project decision accuracy by 40% over traditional methods.",
+      "Implemented low / medium / high risk classification as the standard stakeholder interface.",
+      "Developed a Flask chatbot for live project details, risks, and mitigation queries.",
     ],
   },
   {
@@ -141,9 +219,9 @@ export const experience: ExperienceRole[] = [
     logo: "/capgemini.png",
     tags: ["Engineering", "Azure", "Vue.js"],
     bullets: [
-      "Led development and decommissioning of 25+ enterprise applications, implementing admin control systems and Azure DevOps CI/CD pipelines that cut release cycle time.",
-      "Migrated legacy applications to Vue.js, delivering measurable improvements in UX and page load performance.",
-      "Managed a cross-functional team of three, introducing structured status workflows that reduced issue resolution time and improved stakeholder communication.",
+      "Led development and decommissioning of 25+ enterprise applications with admin controls and Azure DevOps CI/CD.",
+      "Migrated legacy applications to Vue.js, improving UX and page-load performance.",
+      "Managed a three-person team and introduced workflows that reduced issue resolution time.",
     ],
   },
 ];
@@ -355,6 +433,84 @@ export const recognition: string[] = [
   "MIT Energy HackAIthon — Semi-finalist",
   "MIT AI in Education Hackathon — Semi-finalist",
   "OpenAI Global Codex Hackathon — Participant",
+];
+
+export type WritingItem = {
+  title: string;
+  theme: string;
+  description: string;
+  href: string;
+  icon: LucideIcon;
+};
+
+export const writing: WritingItem[] = [
+  {
+    title: "Agentic Engineering Notes",
+    theme: "Agents · SDLC · MCP",
+    description:
+      "Practical notes on building agent workflows that move from prototype demos into reviewable engineering systems.",
+    href: "https://medium.com/@mohankocherlakota",
+    icon: PenTool,
+  },
+  {
+    title: "Enterprise RAG Playbook",
+    theme: "Retrieval · Governance",
+    description:
+      "How ingestion, refresh strategy, source grounding, and evaluation shape enterprise-grade retrieval systems.",
+    href: "https://medium.com/@mohankocherlakota",
+    icon: FileSearch,
+  },
+  {
+    title: "Human-Controlled Autonomy",
+    theme: "AI Safety · Workflow Design",
+    description:
+      "Design patterns for keeping humans in control while agents execute meaningful work across software workflows.",
+    href: "https://medium.com/@mohankocherlakota",
+    icon: ShieldCheck,
+  },
+  {
+    title: "LLM Systems in Production",
+    theme: "Architecture · Evaluation",
+    description:
+      "Lessons from connecting models, data, tools, and evaluation loops into maintainable AI products.",
+    href: "https://medium.com/@mohankocherlakota",
+    icon: Layers3,
+  },
+];
+
+export type Credential = {
+  title: string;
+  issuer: string;
+  status: string;
+  icon: LucideIcon;
+  href?: string;
+};
+
+export const credentials: Credential[] = [
+  {
+    title: "OpenAI Certified",
+    issuer: "OpenAI",
+    status: "Verification link pending",
+    icon: Award,
+  },
+  {
+    title: "AWS Certified",
+    issuer: "Amazon Web Services",
+    status: "Verification link pending",
+    icon: Cloud,
+  },
+  {
+    title: "Hugging Face Certified",
+    issuer: "Hugging Face",
+    status: "Verification link pending",
+    icon: Brain,
+  },
+  {
+    title: "MIT AI Hackathons",
+    issuer: "MIT Energy HackAIthon · MIT AI in Education",
+    status: "Semi-finalist",
+    icon: GraduationCap,
+  },
 ];
 
 export const corePrinciples: { title: string; description: string; icon: LucideIcon }[] = [
